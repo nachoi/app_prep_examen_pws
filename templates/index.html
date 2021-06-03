@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} U-TAD BLACKBOARD IN-HOUSE {% endblock %}
+
+
+{% block content %}   
+   <h1> Implementar un buscador para filtrar por ticker </h1>
+   <ul> 
+       <li> El buscador tiene que usar WTF con validación de formulario por tamaño 1 a 4 </li>
+       <li> El buscador debe ser un desplegable </li>
+       <li> El resultado se tiene que pintar utilizando datatable </li>
+       <li> La conexión con base de datos tiene que ser con SQLAlchemy &#10004</li>
+       <li> Usar la estructura MVT &#10004</li>
+   </ul>
+   {% for company in companies %}
+        <div>
+            {{ company.index }} | {{ company.ticker }} | {{ company.country }} | {{ company.sector }} | {{ company.RefIndex }}
+        </div>
+   {% endfor %}
+{% endblock %}

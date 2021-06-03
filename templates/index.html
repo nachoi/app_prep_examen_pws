@@ -10,53 +10,53 @@
     <ul>
         <li> El buscador tiene que usar WTF con validación de formulario por tamaño 1 a 4 </li>
         <li> El buscador debe ser un desplegable </li>
-        <li> El resultado se tiene que pintar utilizando datatable </li>
+        <li> El resultado se tiene que pintar utilizando datatable &#10004</li>
         <li> La conexión con base de datos tiene que ser con SQLAlchemy &#10004</li>
         <li> Usar la estructura MVT &#10004</li>
     </ul>
     <h2> Buscador por ticker </h2>
-    <form action="." method="POST" class="form-inline">
+    <form action="." method="POST" class="form-inline" style="margin-bottom: 20px;">
         <div class="form-group">
             {{form.company(class="form-control")}}
         </div>
         <button type="submit" id="searcher_but" class="btn btn-success">Submit</button>
-        {{ symbol }}
-        {% if symbol %}
-            <table id="search_table" class="display" style="width:100%">
-                <thead>
-                <tr>
-                    <th>Index</th>
-                    <th>Ticker</th>
-                    <th>Country</th>
-                    <th>Sector</th>
-                    <th>RefIndex</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for company in companies %}
-                    {% if symbol in company.ticker %}
-                        <tr>
-                            <td>{{ company.index }}</td>
-                            <td>{{ company.ticker }}</td>
-                            <td>{{ company.country }}</td>
-                            <td>{{ company.sector }}</td>
-                            <td>{{ company.RefIndex }}</td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th>Index</th>
-                    <th>Ticker</th>
-                    <th>Country</th>
-                    <th>Sector</th>
-                    <th>RefIndex</th>
-                </tr>
-                </tfoot>
-            </table>
-        {% endif %}
     </form>
+    {{ symbol }}
+    {% if symbol %}
+        <table id="search_table" class="display" style="width:100%">
+            <thead>
+            <tr>
+                <th>Index</th>
+                <th>Ticker</th>
+                <th>Country</th>
+                <th>Sector</th>
+                <th>RefIndex</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for company in companies %}
+                {% if symbol in company.ticker %}
+                    <tr>
+                        <td>{{ company.index }}</td>
+                        <td>{{ company.ticker }}</td>
+                        <td>{{ company.country }}</td>
+                        <td>{{ company.sector }}</td>
+                        <td>{{ company.RefIndex }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>Index</th>
+                <th>Ticker</th>
+                <th>Country</th>
+                <th>Sector</th>
+                <th>RefIndex</th>
+            </tr>
+            </tfoot>
+        </table>
+    {% endif %}
     <h2> Tabla con todos los valores de la bbdd</h2>
     <table id="company_table" class="display" style="width:100%">
         <thead>

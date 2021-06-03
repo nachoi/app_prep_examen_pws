@@ -8,7 +8,7 @@ app = get_app()
 db = get_db()
 
 class SearchForm(Form):
-    company = StringField('Company', validators=[InputRequired(),Length(min=1,max=4)],render_kw={"placeholder": "company symbol (1-4 letters)"})
+    company = StringField('Company', validators=[InputRequired(),Length(min=1,max=4,message="1 a 4")],render_kw={"placeholder": "company symbol (1-4 letters)"})
 
 @app.route('/', methods=["GET", "POST"])
 def index():

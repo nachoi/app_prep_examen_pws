@@ -3,18 +3,51 @@
 {% block title %} U-TAD BLACKBOARD IN-HOUSE {% endblock %}
 
 
-{% block content %}   
-   <h1> Implementar un buscador para filtrar por ticker </h1>
-   <ul> 
-       <li> El buscador tiene que usar WTF con validación de formulario por tamaño 1 a 4 </li>
-       <li> El buscador debe ser un desplegable </li>
-       <li> El resultado se tiene que pintar utilizando datatable </li>
-       <li> La conexión con base de datos tiene que ser con SQLAlchemy &#10004</li>
-       <li> Usar la estructura MVT &#10004</li>
-   </ul>
-   {% for company in companies %}
-        <div>
-            {{ company.index }} | {{ company.ticker }} | {{ company.country }} | {{ company.sector }} | {{ company.RefIndex }}
-        </div>
-   {% endfor %}
+{% block content %}
+    <style>
+        table,tr {
+            border: 1px solid black;
+            margin-left: 10px;
+        }
+        td,th {
+            padding: 5px;
+        }
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: black;
+            color: white;
+            padding: 8px;
+        }
+        tr:nth-child(even){background-color: #f2f2f2;}
+        tr:hover {background-color: #ddd;}
+    </style>
+    <h1> Implementar un buscador para filtrar por ticker </h1>
+    <ul>
+        <li> El buscador tiene que usar WTF con validación de formulario por tamaño 1 a 4 </li>
+        <li> El buscador debe ser un desplegable </li>
+        <li> El resultado se tiene que pintar utilizando datatable </li>
+        <li> La conexión con base de datos tiene que ser con SQLAlchemy &#10004</li>
+        <li> Usar la estructura MVT &#10004</li>
+    </ul>
+    <table>
+        <tr>
+            <th>Index</th>
+            <th>Ticker</th>
+            <th>Country</th>
+            <th>Sector</th>
+            <th>RefIndex</th>
+        </tr>
+        {% for company in companies %}
+            <tr>
+                <td>{{ company.index }}</td>
+                <td>{{ company.ticker }}</td>
+                <td>{{ company.country }}</td>
+                <td>{{ company.sector }}</td>
+                <td>{{ company.RefIndex }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
 {% endblock %}

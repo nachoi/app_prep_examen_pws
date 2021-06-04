@@ -8,7 +8,7 @@
 
     <h1> Implementar un buscador para filtrar por ticker </h1>
     <ul>
-        <li> El buscador tiene que usar WTF con validación de formulario por tamaño 1 a 4 </li>
+        <li> El buscador tiene que usar WTF con validación de formulario por tamaño 1 a 4 &#10004</li>
         <li> El buscador debe ser un desplegable </li>
         <li> El resultado se tiene que pintar utilizando datatable &#10004</li>
         <li> La conexión con base de datos tiene que ser con SQLAlchemy &#10004</li>
@@ -17,12 +17,13 @@
     <h2> Buscador por ticker </h2>
     <form action="." method="POST" class="form-inline" style="margin-bottom: 20px;">
         <div class="form-group">
-            {{form.company(class="form-control")}}
+            {{ form.hidden_tag() }}
+            {{ form.company(class="form-control") }}
         </div>
         <button type="submit" id="searcher_but" class="btn btn-success">Submit</button>
     </form>
-    {{ symbol }}
     {% if symbol %}
+        <h3>Tabla con el resultado de la búsqueda por el ticker: {{ symbol }}</h3>
         <table id="search_table" class="display" style="width:100%">
             <thead>
             <tr>

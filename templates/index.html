@@ -9,7 +9,7 @@
     <h1> Implementar un buscador para filtrar por ticker </h1>
     <ul>
         <li> El buscador tiene que usar WTF con validación de formulario por tamaño 1 a 4 &#10004</li>
-        <li> El buscador debe ser un desplegable </li>
+        <li> El buscador debe ser un desplegable &#10004</li>
         <li> El resultado se tiene que pintar utilizando datatable &#10004</li>
         <li> La conexión con base de datos tiene que ser con SQLAlchemy &#10004</li>
         <li> Usar la estructura MVT &#10004</li>
@@ -36,7 +36,7 @@
             </thead>
             <tbody>
             {% for company in companies %}
-                {% if symbol in company.ticker %}
+                {% if symbol == company.ticker %} <!-- in -> buscar symbol dentro, == -> tienen que ser iguales -->
                     <tr>
                         <td>{{ company.index }}</td>
                         <td>{{ company.ticker }}</td>
